@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_newsletter_strips",
+  "info": {
+    "displayName": "Newsletter Strip"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
