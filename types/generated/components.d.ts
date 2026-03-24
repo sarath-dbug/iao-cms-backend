@@ -11,6 +11,28 @@ export interface AboutValueItem extends Struct.ComponentSchema {
   };
 }
 
+export interface FaqCategory extends Struct.ComponentSchema {
+  collectionName: 'components_faq_categories';
+  info: {
+    displayName: 'category';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'faq.faq-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FaqFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_faq_faq_item_s';
+  info: {
+    displayName: 'faqItem ';
+  };
+  attributes: {
+    answer: Schema.Attribute.Blocks;
+    question: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutFooterColumn extends Struct.ComponentSchema {
   collectionName: 'components_layout_footer_columns';
   info: {
@@ -61,6 +83,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'about.value-item': AboutValueItem;
+      'faq.category': FaqCategory;
+      'faq.faq-item': FaqFaqItem;
       'layout.footer-column': LayoutFooterColumn;
       'layout.link-item': LayoutLinkItem;
       'layout.nav-dropdown': LayoutNavDropdown;
