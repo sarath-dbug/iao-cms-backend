@@ -68,7 +68,7 @@ jobs:
           docker run -d \
             --name IAO_CMS_BACKEND \
             --restart always \
-            -p 127.0.0.1:1337:1337 \
+            -p 1337:1337 \
             --env-file /home/ubuntu/iao-cms/.env/.env.production \
             "$IMAGE"
 
