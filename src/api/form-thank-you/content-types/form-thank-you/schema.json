@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_thank_yous",
+  "info": {
+    "singularName": "form-thank-you",
+    "pluralName": "form-thank-yous",
+    "displayName": "Form Thank You"
+  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": { "i18n": { "localized": true } },
+  "attributes": {
+    "kind": {
+      "type": "enumeration",
+      "enum": ["contact", "newsletter", "complaints"],
+      "required": true
+    },
+    "meta_title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "meta_description": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "breadcrumb_parent": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "breadcrumb_current": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "body": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

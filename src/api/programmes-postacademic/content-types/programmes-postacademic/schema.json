@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "programmes_postacademic",
+  "info": {
+    "singularName": "programmes-postacademic",
+    "pluralName": "programmes-postacademics",
+    "displayName": "Programmes Postacademic Page"
+  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": { "i18n": { "localized": true } },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "intro": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "cta": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "breadcrumb_postacademic": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "past_title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registration_thank_yous",
+  "info": {
+    "singularName": "registration-thank-you",
+    "pluralName": "registration-thank-yous",
+    "displayName": "Registration Thank You"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "page_locale": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "breadcrumb": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "paragraphs": {
+      "type": "json"
+    },
+    "jotform_iframe_src": {
+      "type": "text"
+    }
+  }
+}
