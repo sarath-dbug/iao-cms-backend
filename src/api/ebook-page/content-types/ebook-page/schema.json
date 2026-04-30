@@ -1,0 +1,102 @@
+{
+  "kind": "singleType",
+  "collectionName": "ebook_pages",
+  "info": {
+    "singularName": "ebook-page",
+    "pluralName": "ebook-pages",
+    "displayName": "Ebook Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "breadcrumb_ebook": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "breadcrumb_thank_you": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "meta_title_form": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "meta_title_thank_you": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "meta_description_form": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "meta_description_thank_you": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "title_form": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "intro_form": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "first_name": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "last_name": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "email": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "privacy_consent_before": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "privacy_consent_link": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "privacy_consent_after": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "submit": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "form_submitting": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "form_error": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "form_validation": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "title_thank_you": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "thank_you_message": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "brevo_form_url": {
+      "type": "string"
+    }
+  }
+}

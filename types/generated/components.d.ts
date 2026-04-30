@@ -56,6 +56,46 @@ export interface ContactForm extends Struct.ComponentSchema {
   };
 }
 
+export interface CsrCsrSection extends Struct.ComponentSchema {
+  collectionName: 'components_csr_csr_sections';
+  info: {
+    description: 'A titled CSR pillar with a list of bullet points';
+    displayName: 'CSR Section';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.list-item', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface EventsEventItem extends Struct.ComponentSchema {
+  collectionName: 'components_events_event_items';
+  info: {
+    description: 'A single scheduled event with date, time, and registration link';
+    displayName: 'Event Item';
+  };
+  attributes: {
+    date_short: Schema.Attribute.String;
+    day_label: Schema.Attribute.String;
+    register_label: Schema.Attribute.String & Schema.Attribute.Required;
+    register_url: Schema.Attribute.String & Schema.Attribute.Required;
+    time: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface EventsEventSection extends Struct.ComponentSchema {
+  collectionName: 'components_events_event_sections';
+  info: {
+    description: "A titled group of events (e.g. '4-Year Programme Open Days')";
+    displayName: 'Event Section';
+  };
+  attributes: {
+    events: Schema.Attribute.Component<'events.event-item', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
 export interface FaqCategory extends Struct.ComponentSchema {
   collectionName: 'components_faq_categories';
   info: {
@@ -78,49 +118,50 @@ export interface FaqFaqItem extends Struct.ComponentSchema {
   };
 }
 
-export interface LayoutFooterColumn extends Struct.ComponentSchema {
-  collectionName: 'components_layout_footer_columns';
+export interface LegalArticleSection extends Struct.ComponentSchema {
+  collectionName: 'components_legal_article_sections';
   info: {
-    displayName: 'Footer Column';
+    description: 'A numbered article/clause for Terms & Conditions';
+    displayName: 'Article Section';
   };
   attributes: {
-    items: Schema.Attribute.Component<'layout.link-item', true>;
-    title: Schema.Attribute.String;
+    body: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface LayoutLinkItem extends Struct.ComponentSchema {
-  collectionName: 'components_layout_link_items';
+export interface SharedClinicFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_clinic_faq_items';
   info: {
-    displayName: 'Link Item';
+    description: 'A question + rich text answer for the Associated Clinics FAQ accordion';
+    displayName: 'Clinic FAQ Item';
   };
   attributes: {
-    href: Schema.Attribute.String & Schema.Attribute.Required;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    answer: Schema.Attribute.Blocks;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface LayoutNavDropdown extends Struct.ComponentSchema {
-  collectionName: 'components_layout_nav_dropdowns';
+export interface SharedListItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_list_items';
   info: {
-    displayName: 'Nav Dropdown';
+    description: 'A single text bullet point';
+    displayName: 'List Item';
   };
   attributes: {
-    items: Schema.Attribute.Component<'layout.link-item', true>;
-    label: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface LayoutNewsletterStrip extends Struct.ComponentSchema {
-  collectionName: 'components_layout_newsletter_strips';
+export interface SharedPageSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_page_sections';
   info: {
-    displayName: 'Newsletter Strip';
+    description: 'A titled section with rich text body \u2014 used in legal/policy pages';
+    displayName: 'Page Section';
   };
   attributes: {
-    buttonLabel: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    body: Schema.Attribute.Blocks;
+    section_title: Schema.Attribute.String;
   };
 }
 
@@ -131,12 +172,15 @@ declare module '@strapi/strapi' {
       'about.mission': AboutMission;
       'about.value-item': AboutValueItem;
       'contact.form': ContactForm;
+      'csr.csr-section': CsrCsrSection;
+      'events.event-item': EventsEventItem;
+      'events.event-section': EventsEventSection;
       'faq.category': FaqCategory;
       'faq.faq-item': FaqFaqItem;
-      'layout.footer-column': LayoutFooterColumn;
-      'layout.link-item': LayoutLinkItem;
-      'layout.nav-dropdown': LayoutNavDropdown;
-      'layout.newsletter-strip': LayoutNewsletterStrip;
+      'legal.article-section': LegalArticleSection;
+      'shared.clinic-faq-item': SharedClinicFaqItem;
+      'shared.list-item': SharedListItem;
+      'shared.page-section': SharedPageSection;
     }
   }
 }
