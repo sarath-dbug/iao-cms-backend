@@ -4,14 +4,24 @@
   "info": {
     "singularName": "programme-manual-therapy",
     "pluralName": "programme-manual-therapies",
-    "displayName": "Programme Manual Therapy"
+    "displayName": "Programme Manual Therapy Hub"
   },
-  "options": { "draftAndPublish": true },
-  "pluginOptions": { "i18n": { "localized": true } },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "content": {
       "type": "json",
-      "pluginOptions": { "i18n": { "localized": true } }
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

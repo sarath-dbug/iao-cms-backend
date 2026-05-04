@@ -1299,6 +1299,57 @@ export interface ApiLecturersPageLecturersPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLegalNoticePageLegalNoticePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'legal_notice_pages';
+  info: {
+    displayName: 'Legal Notice Page';
+    pluralName: 'legal-notice-pages';
+    singularName: 'legal-notice-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    intro: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legal-notice-page.legal-notice-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'shared.page-section', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNewsArticleNewsArticle extends Struct.CollectionTypeSchema {
   collectionName: 'news_articles';
   info: {
@@ -1366,57 +1417,6 @@ export interface ApiNewsArticleNewsArticle extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiLegalNoticePageLegalNoticePage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'legal_notice_pages';
-  info: {
-    displayName: 'Legal Notice Page';
-    pluralName: 'legal-notice-pages';
-    singularName: 'legal-notice-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    intro: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::legal-notice-page.legal-notice-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.Component<'shared.page-section', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1907,7 +1907,7 @@ export interface ApiProgrammeCampusProgrammeCampus
       'api::programme-campus.programme-campus'
     >;
     programme_type: Schema.Attribute.Enumeration<
-      ['master', 'lateral', 'manual-therapy']
+      ['master', 'lateral', 'manual-therapy', 'omt-egypt']
     > &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
@@ -1921,7 +1921,7 @@ export interface ApiProgrammeLateralProgrammeLateral
   extends Struct.SingleTypeSchema {
   collectionName: 'programme_lateral';
   info: {
-    displayName: 'Programme Lateral';
+    displayName: 'Programme Lateral Hub';
     pluralName: 'programme-laterals';
     singularName: 'programme-lateral';
   };
@@ -1959,7 +1959,7 @@ export interface ApiProgrammeManualTherapyProgrammeManualTherapy
   extends Struct.SingleTypeSchema {
   collectionName: 'programme_manual_therapy';
   info: {
-    displayName: 'Programme Manual Therapy';
+    displayName: 'Programme Manual Therapy Hub';
     pluralName: 'programme-manual-therapies';
     singularName: 'programme-manual-therapy';
   };
@@ -1997,7 +1997,7 @@ export interface ApiProgrammeMasterProgrammeMaster
   extends Struct.SingleTypeSchema {
   collectionName: 'programme_master';
   info: {
-    displayName: 'Programme Master';
+    displayName: 'Programme Master Hub';
     pluralName: 'programme-masters';
     singularName: 'programme-master';
   };
@@ -2031,49 +2031,11 @@ export interface ApiProgrammeMasterProgrammeMaster
   };
 }
 
-export interface ApiProgrammeOmtEgyptProgrammeOmtEgypt
-  extends Struct.SingleTypeSchema {
-  collectionName: 'programme_omt_egypt';
-  info: {
-    displayName: 'Programme OMT Egypt';
-    pluralName: 'programme-omt-egypts';
-    singularName: 'programme-omt-egypt';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    content: Schema.Attribute.JSON &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::programme-omt-egypt.programme-omt-egypt'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiProgrammesOverviewProgrammesOverview
   extends Struct.SingleTypeSchema {
   collectionName: 'programmes_overview';
   info: {
-    displayName: 'Programmes Overview Page';
+    displayName: 'Programmes overview hub';
     pluralName: 'programmes-overviews';
     singularName: 'programmes-overview';
   };
@@ -3008,8 +2970,8 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::impressum-page.impressum-page': ApiImpressumPageImpressumPage;
       'api::lecturers-page.lecturers-page': ApiLecturersPageLecturersPage;
-      'api::news-article.news-article': ApiNewsArticleNewsArticle;
       'api::legal-notice-page.legal-notice-page': ApiLegalNoticePageLegalNoticePage;
+      'api::news-article.news-article': ApiNewsArticleNewsArticle;
       'api::newsletter-page.newsletter-page': ApiNewsletterPageNewsletterPage;
       'api::newsletter-strip.newsletter-strip': ApiNewsletterStripNewsletterStrip;
       'api::open-days-page.open-days-page': ApiOpenDaysPageOpenDaysPage;
@@ -3019,7 +2981,6 @@ declare module '@strapi/strapi' {
       'api::programme-lateral.programme-lateral': ApiProgrammeLateralProgrammeLateral;
       'api::programme-manual-therapy.programme-manual-therapy': ApiProgrammeManualTherapyProgrammeManualTherapy;
       'api::programme-master.programme-master': ApiProgrammeMasterProgrammeMaster;
-      'api::programme-omt-egypt.programme-omt-egypt': ApiProgrammeOmtEgyptProgrammeOmtEgypt;
       'api::programmes-overview.programmes-overview': ApiProgrammesOverviewProgrammesOverview;
       'api::programmes-postacademic.programmes-postacademic': ApiProgrammesPostacademicProgrammesPostacademic;
       'api::registration-form-page.registration-form-page': ApiRegistrationFormPageRegistrationFormPage;
