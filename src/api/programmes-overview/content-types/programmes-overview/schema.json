@@ -4,14 +4,24 @@
   "info": {
     "singularName": "programmes-overview",
     "pluralName": "programmes-overviews",
-    "displayName": "Programmes Overview Page"
+    "displayName": "Programmes overview hub"
   },
-  "options": { "draftAndPublish": true },
-  "pluginOptions": { "i18n": { "localized": true } },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "content": {
       "type": "json",
-      "pluginOptions": { "i18n": { "localized": true } }
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

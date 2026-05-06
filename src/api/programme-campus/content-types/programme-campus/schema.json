@@ -25,7 +25,8 @@
       "enum": [
         "master",
         "lateral",
-        "manual-therapy"
+        "manual-therapy",
+        "omt-egypt"
       ]
     },
     "content_overrides": {
