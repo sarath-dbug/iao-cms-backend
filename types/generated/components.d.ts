@@ -475,6 +475,58 @@ export interface ProgrammeLecturersSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ProgrammeModuleItem extends Struct.ComponentSchema {
+  collectionName: 'components_programme_module_items';
+  info: {
+    description: 'Single module row';
+    displayName: 'Module Item';
+  };
+  attributes: {
+    note: Schema.Attribute.RichText;
+    schedule: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProgrammeModuleSection extends Struct.ComponentSchema {
+  collectionName: 'components_programme_module_sections';
+  info: {
+    description: 'Section of programme modules';
+    displayName: 'Module Section';
+  };
+  attributes: {
+    display_mode: Schema.Attribute.Enumeration<['normal', 'tabbed']> &
+      Schema.Attribute.DefaultTo<'normal'>;
+    tabs: Schema.Attribute.Component<'programme.module-tab', true>;
+    title: Schema.Attribute.String;
+    years: Schema.Attribute.Component<'programme.module-year', true>;
+  };
+}
+
+export interface ProgrammeModuleTab extends Struct.ComponentSchema {
+  collectionName: 'components_programme_module_tabs';
+  info: {
+    description: 'Tabbed grouping of module years';
+    displayName: 'Module Tab';
+  };
+  attributes: {
+    tab_label: Schema.Attribute.String;
+    years: Schema.Attribute.Component<'programme.module-year', true>;
+  };
+}
+
+export interface ProgrammeModuleYear extends Struct.ComponentSchema {
+  collectionName: 'components_programme_module_years';
+  info: {
+    description: 'Year bucket containing module items';
+    displayName: 'Module Year';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'programme.module-item', true>;
+    year_title: Schema.Attribute.String;
+  };
+}
+
 export interface ProgrammeOptions extends Struct.ComponentSchema {
   collectionName: 'components_programme_options';
   info: {
@@ -501,6 +553,19 @@ export interface ProgrammePracticalItem extends Struct.ComponentSchema {
   info: {
     description: 'Practical information line';
     displayName: 'Practical Item';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    note: Schema.Attribute.RichText;
+    value: Schema.Attribute.RichText;
+  };
+}
+
+export interface ProgrammePracticalRow extends Struct.ComponentSchema {
+  collectionName: 'components_programme_practical_rows';
+  info: {
+    description: 'Practical information row';
+    displayName: 'Practical Row';
   };
   attributes: {
     label: Schema.Attribute.String;
@@ -670,8 +735,13 @@ declare module '@strapi/strapi' {
       'programme.hero': ProgrammeHero;
       'programme.lateral-entry': ProgrammeLateralEntry;
       'programme.lecturers-section': ProgrammeLecturersSection;
+      'programme.module-item': ProgrammeModuleItem;
+      'programme.module-section': ProgrammeModuleSection;
+      'programme.module-tab': ProgrammeModuleTab;
+      'programme.module-year': ProgrammeModuleYear;
       'programme.options': ProgrammeOptions;
       'programme.practical-item': ProgrammePracticalItem;
+      'programme.practical-row': ProgrammePracticalRow;
       'programme.track-group': ProgrammeTrackGroup;
       'programme.track-item': ProgrammeTrackItem;
       'schedule.day': ScheduleDay;

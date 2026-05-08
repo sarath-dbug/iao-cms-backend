@@ -1862,7 +1862,7 @@ export interface ApiProgrammeCampusProgrammeCampus
         };
       }>;
     campus_slug: Schema.Attribute.String & Schema.Attribute.Required;
-    content_intro: Schema.Attribute.RichText &
+    content: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1871,16 +1871,19 @@ export interface ApiProgrammeCampusProgrammeCampus
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'programme.hero', false> &
+    cta: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    lecturers_section: Schema.Attribute.Component<
-      'programme.lecturers-section',
-      false
-    > &
+    intro: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lecturers: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1897,20 +1900,23 @@ export interface ApiProgrammeCampusProgrammeCampus
           localized: true;
         };
       }>;
+    module_sections: Schema.Attribute.Component<
+      'programme.module-section',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     modules_title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    options: Schema.Attribute.Component<'programme.options', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    practical_items: Schema.Attribute.Component<
-      'programme.practical-item',
+    practical_rows: Schema.Attribute.Component<
+      'programme.practical-row',
       true
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1926,8 +1932,21 @@ export interface ApiProgrammeCampusProgrammeCampus
       ['master', 'lateral', 'manual-therapy', 'omt-egypt']
     >;
     publishedAt: Schema.Attribute.DateTime;
+    register_link: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Schema.Attribute.UID<'campus_slug'> & Schema.Attribute.Required;
-    track_groups: Schema.Attribute.Component<'programme.track-group', true> &
+    subtitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

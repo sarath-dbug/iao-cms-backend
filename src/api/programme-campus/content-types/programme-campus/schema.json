@@ -39,17 +39,32 @@
         "omt-egypt"
       ]
     },
-    "hero": {
-      "type": "component",
-      "repeatable": false,
-      "component": "programme.hero",
+    "title": {
+      "type": "string",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "content_intro": {
+    "subtitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "intro": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "content": {
       "type": "richtext",
       "pluginOptions": {
         "i18n": {
@@ -57,30 +72,52 @@
         }
       }
     },
-    "track_groups": {
-      "type": "component",
-      "repeatable": true,
-      "component": "programme.track-group",
+    "cta": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "lecturers_section": {
-      "type": "component",
-      "repeatable": false,
-      "component": "programme.lecturers-section",
+    "register_link": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "practical_items": {
+    "modules_title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "module_sections": {
       "type": "component",
       "repeatable": true,
-      "component": "programme.practical-item",
+      "component": "programme.module-section",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "practical_rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "programme.practical-row",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "lecturers": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -97,25 +134,7 @@
         }
       }
     },
-    "options": {
-      "type": "component",
-      "repeatable": false,
-      "component": "programme.options",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "breadcrumb_label": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "modules_title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
